@@ -8,20 +8,15 @@ class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         stack = []
         path = []
-        stack.append([root, 1])
+        stack.append([root, root.val])
         count = 0
-        #check = []
         while stack:
             node, level = stack.pop()
             if node == None:continue
-            if level > len(path):
-                path.append(node.val)
-            else:
-                path[level-1] = node.val
-            
-            if node.val >= max(path[ :level]):
+            if node.val >= level:
                 count += 1
-                #check.append(node.val)
-            stack.extend([[node.left, level+1], [node.right, level+1]])    
+                stack.extend([[node.left, node.val], [node.right, node.val]]) 
+            else:
+                stack.extend([[node.left, level], [node.right, level]])
         return count
         
