@@ -1,6 +1,5 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
-        nums = []
         d = 10
         res = []
         syms = ['I','V','X','L','C','D','M']
