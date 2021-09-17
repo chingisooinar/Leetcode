@@ -12,5 +12,7 @@ class Solution:
                     count += 1
                 longest = max(longest, count)
                 
+                if longest >= len(memo):
+                    return longest
         return longest
         
